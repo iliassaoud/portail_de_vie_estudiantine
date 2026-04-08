@@ -6,4 +6,4 @@ Le projet utilise :
 - **CSS Grid & Flexbox** pour l'organisation de la structure.
 - Un **design responsive** qui modifie la mise en page selon la résolution de l'écran.
 
-![Aperçu](Images/NewLogo.png)
+![Aperçu](demo.gif)
