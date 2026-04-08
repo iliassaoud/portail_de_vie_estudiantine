@@ -1,0 +1,156 @@
+/* --- Mise en page Globale --- */
+body {
+    width: 80%;           /* Définit la largeur à 80% de l'écran */
+    margin-left: 10%;     /* Ajoute 10% de marge à gauche pour centrer (80% + 10% + 10% de reste = 100%) */
+    font-family: Arial, sans-serif; /* Police d'écriture simple et propre */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Le Container utilise CSS GRID pour organiser l'en-tête, le menu, le contenu et le pied de page */
+.container {
+    display: grid;
+    /* On nomme nos zones pour les placer plus facilement */
+    grid-template-areas: 
+        "header header"  /* L'en-tête prend toute la largeur du haut (2 colonnes) */
+        "nav    main"    /* La nav est à gauche, le contenu (main) à droite */
+        "footer footer"; /* Le pied de page prend toute la largeur du bas */
+    
+    grid-template-rows: auto 1fr auto; /* Hauteur : auto pour header/footer, et '1fr' prend tout le reste pour le contenu */
+    grid-template-columns: 1fr 4fr;    /* Largeur : nav fait 1 part (20%), main fait 4 parts (80%) */
+    min-height: 100vh;                 /* Assure que le site prend au moins toute la hauteur de l'écran */
+}
+
+/* --- Style de l'En-tête (Header) --- */
+header {
+    grid-area: header;       /* On l'associe au nom définit dans la grille plus haut */
+    display: grid;           /* Header est lui-même une grille pour placer le logo et le texte */
+    grid-template-columns: 1fr 4fr; /* Logo à gauche (1/5), Texte à droite (4/5) */
+    height: 80px;            /* Hauteur fixe de 80px selon l'exercice 3 */
+    background-color: #ecc606; /* Jaune moutarde */
+    border-top: 10px solid #385CA8;    /* Bordure épaisse bleue en haut */
+    border-bottom: 10px solid #385CA8; /* Bordure épaisse bleue en bas */
+    align-items: center;     /* Centre verticalement les éléments dedans */
+    gap: 20px;              /* Espace de 20px entre le logo et le texte */
+}
+
+header img {
+    height: 70px;            /* Définit une hauteur pour le logo */
+    margin-left: 10px;       /* Un peu d'air à gauche */
+}
+
+#texteEntete {
+    font-family: 'Courier New', monospace; /* Style "machine à écrire" comme demandé */
+    text-align: center;      /* Centre le titre horizontalement */
+}
+
+#texteEntete h1 {
+    font-size: 24px;         /* Taille du titre principal */
+    margin: 0;               /* Retire les marges par défaut pour mieux contrôler la hauteur */
+    color: #385CA8;          /* Texte en bleu */
+}
+
+#texteEntete h3 {
+    font-size: 14px;
+    margin: 0;
+    color: #385CA8;
+    text-transform: uppercase; /* Met le texte en majuscules */
+}
+
+/* --- Style du Menu de navigation (Nav) --- */
+nav {
+    grid-area: nav;
+    display: flex;           /* Utilise Flexbox pour aligner les boutons verticalement */
+    flex-direction: column;  /* Aligne les éléments de haut en bas */
+    gap: 15px;               /* Espace de 15px entre chaque bouton */
+    padding: 20px;           /* Espace entre les boutons et le bord de la barre grise */
+    background-color: #f4f4f4; /* Fond gris clair */
+}
+
+/* Style des liens (balises <a>) pour qu'ils ressemblent à des boutons */
+nav a {
+    text-decoration: none;   /* Supprime le soulignement par défaut */
+    color: white;            /* Texte blanc */
+    background-color: #c9b207; /* Couleur jaune foncé du bouton */
+    padding: 12px;           /* Espace intérieur pour grossir le bouton */
+    text-align: center;      /* Centre le texte dans le bouton */
+    border-radius: 8px;      /* Arrondit les coins */
+    font-weight: bold;       /* Texte en gras */
+    display: block;          /* Donne au lien la largeur de son conteneur */
+}
+
+/* Effet quand on passe la souris sur un bouton */
+nav a:hover {
+    color: #ebf705;          /* Change la couleur du texte en jaune fluo */
+}
+
+/* --- Zone de Contenu (Main) --- */
+main {
+    grid-area: main;
+    background-color: white;
+}
+
+iframe {
+    width: 100%;             /* Fait en sorte que l'iframe remplisse toute la largeur disponible */
+    height: 100%;
+    border: none;            /* Supprime la bordure par défaut de l'iframe */
+    min-height: 600px;
+}
+
+/* --- Style du Pied de page (Footer) --- */
+footer {
+    grid-area: footer;
+    height: 40px;            /* 40 pixels de haut selon l'exercice 3 */
+    background-color: #ecc606;
+    display: flex;
+    justify-content: center; /* Centre horizontalement le texte © */
+    align-items: center;     /* Centre verticalement le texte © */
+    border-top: 5px solid #385CA8;
+}
+
+footer p {
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* --- Style Adaptatif (Responsive Design) - Exercice 4 --- */
+/* Ces règles s'activent UNIQUEMENT si l'écran est plus petit que 768px (Mobiles/Tablettes) */
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;         /* On utilise 100% de la largeur au lieu de 80% */
+        margin-left: 0;      /* On supprime les marges sur le côté */
+    }
+    
+    .container {
+        /* On déplace les zones : elles s'empilent maintenant verticalement au lieu d'être côte à côte */
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "footer";
+        grid-template-columns: 1fr; /* Une seule colonne au lieu de deux */
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    header {
+        grid-template-columns: 1fr; /* Logo et texte l'un sous l'autre sur mobile */
+        height: auto;               /* Hauteur automatique pour contenir tout */
+        padding: 10px;
+    }
+
+    header img {
+        display: block;
+        margin: 0 auto 10px auto;   /* Centre l'image horizontalement */
+    }
+
+    nav {
+        flex-direction: row;        /* Sur mobile, on met les boutons en ligne au lieu d'en colonne */
+        flex-wrap: wrap;            /* Permet de passer à la ligne si pas assez de place */
+        justify-content: center;    /* Centre les boutons */
+    }
+
+    nav a {
+        flex: 1 1 40%;              /* Chaque bouton prend environ la moitié de la largeur */
+    }
+}

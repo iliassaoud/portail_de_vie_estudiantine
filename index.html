@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Déclare que c'est un document HTML5 moderne -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <!-- Permet d'afficher correctement les accents français -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rend le site adapté aux mobiles -->
+    <title>Portail de Vie Estudiantine - ENSA Marrakech</title>
+    
+    <!-- Relie ce fichier HTML au fichier de style CSS (pour le design) -->
+    <link rel="stylesheet" href="monStyle.css">
+</head>
+<body>
+    <!-- Le container englobe tout le site pour faciliter la mise en page (Grid) -->
+    <div class="container">
+        
+        <!-- En-tête du site (Logo et Titre) -->
+        <header>
+            <img src="logo.png" alt="Logo ENSA">
+            <div id="texteEntete">
+                <h1>Portail de Vie Estudiantine</h1>
+                <h3>ENSA DE MARRAKECH</h3>
+            </div>
+        </header>
+
+        <!-- Menu de navigation à gauche -->
+        <nav>
+            <!-- Chaque lien est dans un <div> pour pouvoir les espacer facilement -->
+            <div><a href="actualites.html" target="contenu">Actualités</a></div>
+            <div><a href="emploi.html" target="contenu">Emploi du temps</a></div>
+            <div><a href="clubs.html" target="contenu">Clubs & Activités</a></div>
+            <div><a href="contact.html" target="contenu">Contact Administration</a></div>
+        </nav>
+
+        <!-- Zone centrale où s'affiche le contenu des pages cliquées dans le menu -->
+        <main>
+            <!-- L'iframe est une "fenêtre" qui affiche une autre page (actualites.html par défaut) -->
+            <iframe src="actualites.html" name="contenu" id="contenuFrame"></iframe>
+        </main>
+
+        <!-- Pied de page (Footer) -->
+        <footer>
+            <p>© Ecole d'Ingénieurs</p>
+        </footer>
+    </div>
+</body>
+</html>

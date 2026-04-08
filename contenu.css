@@ -1,0 +1,62 @@
+/* --- Style spécifique pour le contenu des articles (Ex: actualites.html) --- */
+body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style des images dans les articles */
+img {
+    display: block;
+    /* Nécessaire pour pouvoir centrer avec 'margin: auto' */
+    margin: 20px auto;
+    /* 20px en haut/bas, et 'auto' à gauche/droite pour centrer */
+    max-width: 80%;
+    /* Empêche l'image de dépasser de la page */
+    height: auto;
+    border: 2px solid #ddd;
+    /* Petite bordure grise pour le style */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    /* Ombre légère sous l'image */
+}
+
+/* Style du texte des paragraphes */
+p {
+    text-align: justify;
+    /* Aligne le texte à gauche et à droite (propre) */
+    margin-bottom: 15px;
+    /* Espace sous chaque paragraphe */
+    color: #333;
+    /* Gris très foncé */
+    font-size: 16px;
+    line-height: 1.6;
+    /* Espace entre les lignes pour faciliter la lecture */
+}
+
+/* Chaque bloc actualité (<article>) */
+article {
+    border-bottom: 10px solid #385CA8;
+    /* Grosse ligne bleue en bas pour séparer les news */
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+/* Titre de l'actualité */
+article h2 {
+    color: #385CA8;
+    /* Texte bleu */
+    font-variant: small-caps;
+    /* Met en petites capitales */
+    background-color: #e6ecf8;
+    /* Fond bleu très clair sous le titre */
+    padding: 15px;
+    /* Espace entre le texte et le bord du fond bleu */
+    margin-top: 0;
+    font-size: 20px;
+    border-radius: 5px;
+    /* Arrondit un peu les coins du fond bleu */
+}
+
+/* Cache les barres <hr> si elles existent (Instruction 5.c) */
+hr {
+    display: none;
+}
